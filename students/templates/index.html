@@ -10,7 +10,7 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
    
 </head>
-<body  class="d-flex  flex-column min-vh-100" background="{% static 'img/bg.jpg'%}" >
+<body  class="d-flex  flex-column min-vh-100 " style="--bs-bg-opacity: .5;" background="{% static 'img/bg.jpg'%}" >
     <!---------------------- NAVBAR ------------------>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
@@ -43,7 +43,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><p class="navbar-text">Already have an account?</p></li>
                 <li >
-                    <a href="{% url 'home' %}" class="btn btn-secondary mx-2" role="button" >
+                    <a href="{% url 'home' %}" class="btn btn-secondary px-4 rounded mx-4" role="button" >
                         <strong>
                             Login
                         </strong>
@@ -65,7 +65,7 @@
     <div class="container-fluid ">        
     </div>
     <footer class="mt-auto mb-4">
-      <div class="text-center text-light">
+      <div class="text-center text-secondary">
       <span>
         Copyright &copy; <script>document.write(new Date().getFullYear())</script> Black Coder
        <br>
