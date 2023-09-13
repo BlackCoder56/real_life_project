@@ -1,6 +1,11 @@
 {% extends 'wisdom_academy/base.html' %}
 {% block content %}
 <div class="col-md-4 offset-md-4 my-5">
+    {% if user.is_authenticated %}
+    <form action="" method="post" ocomplete="autoff">
+        {% csrf_token %}  
+    </form>
+    {% else %}
     <h2 class="text-primary">
         <span>
             Login
@@ -27,5 +32,7 @@
             </strong>
             </button>
     </form>
+    {% endif %}
+    
 </div>
 {% endblock content %}
