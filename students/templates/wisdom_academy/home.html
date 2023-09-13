@@ -1,21 +1,25 @@
 {% extends 'wisdom_academy/base.html' %}
 {% block content %}
-<div class="col-md-4 offset-md-4 my-4">
-    <h2 class="text-primary">Login</h2>
+<div class="col-md-4 offset-md-4 my-5">
+    <h2 class="text-primary">
+        <span>
+            Login
+        </span>
+    </h2>
     <br>
-    <form method="post" action="{% url 'home' %}">
+    <form method="post" action="{% url 'home' %}" autocomplete="off">
         {% csrf_token %}
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
+            <label for="exampleInputEmail1" class="form-label mx-2 ">
                 Username
             </label>
-            <input type="text" class="form-control" name="username" required id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" class="form-control rounded" name="username" required placeholder="Enter username" id="exampleInputEmail1" aria-describedby="emailHelp">
           </div>
          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">
+            <label for="exampleInputPassword1" class="form-label mx-2">
                 Password
             </label>
-            <input type="password" class="form-control" name="password" required  id="exampleInputPassword1">
+            <input type="password" class="form-control rounded" name="password" required placeholder="Enter password" id="exampleInputPassword1">
           </div>
         <button type="submit" class="btn btn-primary rounded px-4">
             <strong>
