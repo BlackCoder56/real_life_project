@@ -12,7 +12,7 @@
 </head>
 <body  class="d-flex  flex-column min-vh-100 bg-primary bg-opacity-10" >
     <!---------------------- NAVBAR ------------------>
-    {% include 'wisdom_academy/navbar.html' %}   
+    {% include 'wisdom_academy/reg_navbar.html' %}   
     <!---------------------- ENDNAVBAR---------------->
     <div class="container-fluid">     
         {% if messages %}
@@ -26,9 +26,7 @@
         {% block content %}  
         {% endblock content %}
     </div>
-    
     <footer class="mt-auto mb-4">
-        <hr >
         <div class="text-center text-secondary">
         <span>
           Copyright &copy; <script>document.write(new Date().getFullYear())</script> Black Coder
