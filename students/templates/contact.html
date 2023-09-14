@@ -12,7 +12,7 @@
 </head>
 <body  class="d-flex  flex-column min-vh-100 " style="--bs-bg-opacity: .5;"  >
     <!---------------------- NAVBAR ------------------>
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'index' %}">
             <i class="fa-solid fa-graduation-cap fa-lg"></i>
@@ -89,23 +89,112 @@
           </div>
         </div>
       </nav>
-    <!---------------------- ENDNAVBAR---------------->
-    <!-- {% if messages %}
-    {% for message in messages %}
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
-       {{ message }}
-       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    {% endfor %}
-    {% endif %}  -->
+   
     <div class="container-fluid ">      
         
+<!--Section: Contact v.2-->
+<section class="my-5 pt-5">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 ">
+            <!--Section heading-->
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+            <!--Section description-->
+            <p class="text-center text-secondary w-responsive mx-auto">                
+                <i>
+                Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                a matter of hours to help you.
+                </i>
+                
+            </p>
+            <p class="text-center text-secondary w-responsive mx-5 mb-5">
+                <i class="fa-solid fa-location-dot fa-lg" style="color: #3d1764;"></i>              
+                Kampala, Uganda.
+                <i class="fa-solid fa-phone fa-lg" style="color: #3d1764;"></i> + 256 778 567 89
+                <i class="fa-solid fa-envelope fa-lg" style="color: #3d1764;"></i>
+                    wisdomacademy@info.com
+            </p>
+        </div>
+    
+    </div>
+    <div class="row">
 
-       <h1>Contact us</h1>
+        <!--Grid column-->
+        <div class="col-md-4 mb-md-0 mb-5 offset-md-4">
+            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="name" class="">Your name</label>
+                            <input type="text" id="name" name="name" class="form-control rounded">                           
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="email" class="">Your email</label>
+                            <input type="text" id="email" name="email" class="form-control rounded">                            
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="subject" class="">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control rounded">                           
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <label for="message">Your message</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea rounded"></textarea>
+                            
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </form>
+
+            <div class="text-center text-md-left my-4">
+                <!-- <a class="btn btn-primary rounded px-4" onclick="document.getElementById('contact-form').submit();">Send</a> -->
+                <a class="btn btn-primary rounded px-4" >Send</a>
+            </div>
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+
+       
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->
 
         
     </div>
     <footer class="mt-auto mb-4">
+        <hr>
       <div class="text-center text-secondary">
       <span>
         <i class="fa-solid fa-graduation-cap fa-lg"></i>

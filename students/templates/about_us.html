@@ -12,7 +12,7 @@
 </head>
 <body  class="d-flex  flex-column min-vh-100 " style="--bs-bg-opacity: .5;"  >
     <!---------------------- NAVBAR ------------------>
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top " data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'index' %}">
             <i class="fa-solid fa-graduation-cap fa-lg"></i>
@@ -101,8 +101,8 @@
     <div class="container-fluid ">      
         
 
-        <section id="about-section" class="  pt-5 pb-5">
-            <div class="container wrapabout offset-md-1 ">
+        <section id="about-section" class="my-5  pt-5 pb-5">
+            <div class="container wrapabout pt-5 offset-md-1 ">
                 <div class="red"></div>
                 <div class="row">
                     <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
@@ -148,6 +148,7 @@
         
     </div>
     <footer class="mt-auto mb-4">
+      <hr>
       <div class="text-center text-secondary">
       <span>
         <i class="fa-solid fa-graduation-cap fa-lg"></i>
