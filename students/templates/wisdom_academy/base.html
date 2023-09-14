@@ -15,7 +15,10 @@
     {% include 'wisdom_academy/navbar.html' %}   
     <!---------------------- ENDNAVBAR---------------->
     <div class="container-fluid">
-             
+        
+        {% if user.is_authenticated %}
+
+        {% else %}
         {% if messages %}
         {% for message in messages %}
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -24,6 +27,8 @@
           </div>
         {% endfor %}
         {% endif %} 
+        {% endif %}
+       
         {% block content %}  
         {% endblock content %}
     </div>
@@ -32,10 +37,12 @@
         <hr >
         <div class="text-center text-secondary">
         <span>
-          Copyright &copy; <script>document.write(new Date().getFullYear())</script> Black Coder
-         <br>
-          <i class="fa-solid fa-graduation-cap fa-lg"></i>
-          Wisdom Academy  School Management System      
+            <i class="fa-solid fa-graduation-cap fa-lg"></i>
+            Wisdom Academy  School Management System.    
+              Copyright &copy; <script>document.write(new Date().getFullYear())</script> Black Coder
+             <br>
+         
+               
         </span>
         </div>
       </footer>
