@@ -38,18 +38,31 @@ def signout(request):
 def signup(request):
     return render(request, 'wisdom_academy/signup.html')
 
-def student_registration_form(request):
-   
-    form = StudentForm(request.POST or None)
+def student_registration_form(request, id=0):
     if request.user.is_authenticated:
-        if form.is_valid():
-            form.save()
-            # messages.success(request, 'You have successfully Registered a Student!')
-            return redirect('home')
-        return render(request, 'wisdom_academy/student_registration.html',{'form':form})
+        if request.method == "GET":
+                if id == 0:
+                    form = StudentForm()
+                else:
+                    student = Student.objects.get(pk=id)
+                    form = StudentForm(instance=student)
+                    return render(request, 'wisdom_academy/student_registration.html',{'form':form})
+        else:                
+        
+            if id == 0:
+                form = StudentForm(request.POST or None)
+            else:
+                student = Student.objects.get(pk=id)
+                form = StudentForm(request.POST, instance=student)
+            
+            if form.is_valid():
+                form.save()           
+                return redirect('home')
+            return render(request, 'wisdom_academy/student_registration.html',{'form':form})
     else:
         messages.success(request, 'An error occurred. Please try again!')
         return redirect('student_registration')
+    
    
     # return redirect('home')
     # return render(request, 'wisdom_academy/student_registration.html',{})
@@ -61,4 +74,7 @@ def student_registration_form(request):
 #     else:
 #         messages.success(request, 'You have to be logged to view students!')
 #         return redirect('home', {'students': students})
+
+def about_view(request):
+    return render(request, 'about_us.html')
         
