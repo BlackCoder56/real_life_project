@@ -33,7 +33,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="{% url 'student_registration' %}">
+                <a class="nav-link mx-2" href="{% url 'home' %}">
                     <!-- <i class="fa-solid fa-plus"></i> -->
                     <i class="fa-solid fa-database"></i>
                     View Students
@@ -56,7 +56,9 @@
     </div>
     </nav>
     <!---------------------- ENDNAVBAR---------------->
-    <div class="container-fluid">     
+
+    <div class="container-fluid">   
+        <!---------------------  Message notification  --------------->  
         {% if messages %}
         {% for message in messages %}
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -65,9 +67,10 @@
           </div>
         {% endfor %}
         {% endif %} 
+        <!---------------------  END of Message notification  --------------->
         <!------------------  Body --------------->
         <div class="col-md-6 offset-md-3 mt-5">
-            <form action="" method="post" ocomplete="autoff">
+            <form action="" method="post" autocomplete="off">
                 {% csrf_token %}  
                 {{ form.student_name | as_crispy_field }}
                 {{ form.email | as_crispy_field }}
@@ -80,6 +83,19 @@
                     <div class="col-md-8">
                      {{ form.course | as_crispy_field }}
                     </div>      
+                </div>
+                <div class="row my-3">
+                    <div class="col-md-5 " >
+                        <button type="submit" class="btn btn-primary btn-lg  block rounded mx-5">
+                            <i class="fa-solid fa-database fa-lg "></i>
+                            Submit
+                        </button>
+                    </div>
+                    <div class="col-md-7">
+                        <a href="{% url 'home' %}" class="btn btn-info  block rounded btn-lg ">
+                            Back
+                        </a>
+                    </div>                    
                 </div>
             </form>
         </div>       
