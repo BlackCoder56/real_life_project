@@ -7,24 +7,26 @@ from . forms import StudentForm
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-
+# home view is views when logged in and it displays students in the system
 def home(request):
-    
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
-            messages.success(request, 'You have successfully logged in!')
-            return redirect('home')
-        else:
-            messages.error(request, 'An error occurred please try again!')
-            return redirect('home')
+    students = Student.objects.all()
+    if request.user.is_authenticated:    
+        return render(request, 'wisdom_academy/home.html', {'students': students})
     else:
-         return render(request, 'wisdom_academy/home.html',{})
+         if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                # messages.success(request, 'You have successfully logged in!')
+                return redirect('home')
+            else:
+                messages.error(request, 'An error occurred please try again!')
+                return redirect('home')
+    return render(request, 'wisdom_academy/home.html',{'students': students})
             
  
 def signout(request):
@@ -42,15 +44,21 @@ def student_registration_form(request):
     if request.user.is_authenticated:
         if form.is_valid():
             form.save()
-            messages.success(request, 'You have successfully Registered a Student!')
+            # messages.success(request, 'You have successfully Registered a Student!')
             return redirect('home')
         return render(request, 'wisdom_academy/student_registration.html',{'form':form})
     else:
         messages.success(request, 'An error occurred. Please try again!')
-        return redirect('home')
+        return redirect('student_registration')
    
     # return redirect('home')
     # return render(request, 'wisdom_academy/student_registration.html',{})
 
-def view_student(request):
-    pass
+# def view_student(request):
+#     if request.user.is_authenticated:
+#         students = Student.objects.all()
+#         return render(request, 'home.html', {'students': students})
+#     else:
+#         messages.success(request, 'You have to be logged to view students!')
+#         return redirect('home', {'students': students})
+        

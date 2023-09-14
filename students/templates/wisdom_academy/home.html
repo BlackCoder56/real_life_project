@@ -1,12 +1,60 @@
 {% extends 'wisdom_academy/base.html' %}
 {% block content %}
-<div class="col-md-4 offset-md-4 my-5">
+<!-- offset-md-4 
+table-bordered border-primary
+-->
     {% if user.is_authenticated %}
-    <!-- <form action="" method="post" autocomplete="autoff">
-        {% csrf_token %}  
-    </form> -->
-    <p>Your in</p>
+    <div class="col-md-6  my-5"></div>
+    <h5>Student Records</h5>
+    <table class="table table-primary table-bordered border-primary table-hover table-striped">
+        <thead class="table-success border-primary">
+            <tr class="bg-primary">
+                <th scope="col">Student Code</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Course</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% if students %}
+                {% for student in students %}
+                <tr>
+                    <td >
+                        <a href="#">{{ student.student_code }}</a>
+                    </td>
+                    <td class="w-25">
+                        {{ student.student_name }}
+                    </td>             
+                    <td>
+                        {{ student.email }}
+                    </td>      
+                    <td>
+                        {{ student.phone}}
+                    </td> 
+                    <td >
+                        {{ student.address }}
+                    </td>
+                    <td>
+                        <strong class="text-primary align-text-middle">
+                            {{ student.course }}
+                        </strong>                        
+                    </td>
+                    <td>
+                                             
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+
     {% else %}
+    <div class="col-md-4 offset-md-4 my-5">
+
     <h2 class="text-primary">
         <span>
             Login

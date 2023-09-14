@@ -26,7 +26,7 @@
           <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav px-4 me-auto">
               <li class="nav-item">
-                <a class="nav-link active mx-4" href="{% url 'index' %}">
+                <a class="nav-link active mx-4" href="{% url 'home' %}">
                     <i class="fa-solid fa-house "></i>
                     Home
                   <span class="visually-hidden">(current)</span>
@@ -69,7 +69,7 @@
         {% endif %} 
         <!---------------------  END of Message notification  --------------->
         <!------------------  Body --------------->
-        <div class="col-md-6 offset-md-3 mt-5">
+        <div class="col-md-4 offset-md-4 mt-5">
             <form action="" method="post" autocomplete="off">
                 {% csrf_token %}  
                 {{ form.student_name | as_crispy_field }}
@@ -85,13 +85,13 @@
                     </div>      
                 </div>
                 <div class="row my-3">
-                    <div class="col-md-5 " >
-                        <button type="submit" class="btn btn-primary btn-lg  block rounded mx-5">
-                            <i class="fa-solid fa-database fa-lg "></i>
+                    <div class="col-md-6 " >
+                        <button type="submit" class="btn btn-primary btn-lg  block rounded ">
+                            <i class="fa-solid fa-database  "></i>
                             Submit
                         </button>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-4">
                         <a href="{% url 'home' %}" class="btn btn-info  block rounded btn-lg ">
                             Back
                         </a>
@@ -107,10 +107,11 @@
         <hr >
         <div class="text-center text-secondary">
         <span>
+        <i class="fa-solid fa-graduation-cap fa-lg"></i>
+        Wisdom Academy  School Management System.    
           Copyright &copy; <script>document.write(new Date().getFullYear())</script> Black Coder
          <br>
-          <i class="fa-solid fa-graduation-cap fa-lg"></i>
-          Wisdom Academy  School Management System      
+         
         </span>
         </div>
       </footer>
