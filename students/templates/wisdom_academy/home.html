@@ -46,7 +46,7 @@ table-bordered border-primary
                         <a href="{% url 'update' student.id %}" class="btn mx-0">
                             <i class="fa-regular fa-pen-to-square fa-lg" style="color: #05851e;"></i>
                         </a>              
-                        <form action="" method="post" class="d-inline mx-0">
+                        <form action="{% url 'delete' student.id %}" method="post" class="d-inline mx-0">
                             {% csrf_token %}
                             <button type="submit" class="btn">
                                 <i class="fa-regular fa-trash-can fa-lg" style="color: #f70202;"></i>
