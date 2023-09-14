@@ -12,9 +12,9 @@ class StudentForm(forms.ModelForm):
     
     address = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}))
     
-    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}))
+    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={ "placeholder": "eg. 'ST412'","class": "form-control rounded"}))
     
-    # course  = forms.CharField(widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}))
+   
     
     
     class Meta:
@@ -28,6 +28,7 @@ class StudentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(StudentForm, self).__init__(*args, **kwargs)
         self.fields['course'].empty_label = 'Select Course'
+        
         
         
            

@@ -23,27 +23,35 @@ table-bordered border-primary
                 {% for student in students %}
                 <tr>
                     <td >
-                        <a href="#">{{ student.student_code }}</a>
+                        <a href="{% url 'update' student.id %}">{{ student.student_code }}</a>
                     </td>
                     <td class="w-25">
                         {{ student.student_name }}
                     </td>             
-                    <td>
+                    <td class="w-25">
                         {{ student.email }}
                     </td>      
-                    <td>
-                        {{ student.phone}}
+                    <td class="w-10">
+                        +256 {{ student.phone}}
                     </td> 
-                    <td >
+                    <td class="w-10" >
                         {{ student.address }}
                     </td>
-                    <td>
+                    <td class="w-10">
                         <strong class="text-primary align-text-middle">
                             {{ student.course }}
                         </strong>                        
                     </td>
-                    <td>
-                                             
+                    <td class="text-center">
+                        <a href="{% url 'update' student.id %}" class="btn mx-0">
+                            <i class="fa-regular fa-pen-to-square fa-lg" style="color: #05851e;"></i>
+                        </a>              
+                        <form action="" method="post" class="d-inline mx-0">
+                            {% csrf_token %}
+                            <button type="submit" class="btn">
+                                <i class="fa-regular fa-trash-can fa-lg" style="color: #f70202;"></i>
+                            </button>
+                        </form>                               
                     </td>
                 </tr>
                 {% endfor %}
