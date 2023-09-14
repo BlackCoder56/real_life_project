@@ -81,4 +81,7 @@ def remove_student(request, id):
 
 def about_view(request):
     return render(request, 'about_us.html')
+
+def contact_us(request):
+    return render(request, 'contact.html')
         
