@@ -46,11 +46,11 @@ def student_registration_form(request, id=0):
                 else:
                     student = Student.objects.get(pk=id)
                     form = StudentForm(instance=student)
-                    return render(request, 'wisdom_academy/student_registration.html',{'form':form})
+                return render(request, 'wisdom_academy/student_registration.html',{'form':form})
         else:                
         
             if id == 0:
-                form = StudentForm(request.POST or None)
+                form = StudentForm(request.POST)
             else:
                 student = Student.objects.get(pk=id)
                 form = StudentForm(request.POST, instance=student)
@@ -62,6 +62,10 @@ def student_registration_form(request, id=0):
     else:
         messages.success(request, 'An error occurred. Please try again!')
         return redirect('student_registration')
+def remove_student(request, id):
+    student = Student.objects.get(pk=id)
+    student.delete()
+    return redirect('home')
     
    
     # return redirect('home')
