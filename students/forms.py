@@ -12,7 +12,7 @@ class StudentForm(forms.ModelForm):
     
     address = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}))
     
-    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={ "placeholder": "eg. 'ST412'","class": "form-control rounded"}))
+    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={ "placeholder": "eg. 'ST412'","class": "form-control rounded", "name":"student_code", "maxlength":"5","pattern":"ST[4-5][0-9][0-9]","title":"Enter correct format(Between ST400-ST600)"}))
     
    
     
