@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary fixed-top " data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-primary fixed-top mb-5 " data-bs-theme="dark">
     {% if user.is_authenticated %}
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'index' %}">
@@ -72,7 +72,7 @@
                 <a class="nav-link" href="{% url 'about_us' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
               </li>              
             </ul>      
         <ul class="nav navbar-nav navbar-right">

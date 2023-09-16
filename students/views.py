@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from . models import Student
@@ -38,8 +40,9 @@ def signout(request):
 def signup(request):
     return render(request, 'wisdom_academy/signup.html')
 
-def student_registration_form(request, id=0):
-    if request.user.is_authenticated:
+def student_registration_form(request, id=0): 
+        
+    if request.user.is_authenticated:        
         if request.method == "GET":
                 if id == 0:
                     form = StudentForm()
@@ -62,10 +65,15 @@ def student_registration_form(request, id=0):
     else:
         messages.success(request, 'An error occurred. Please try again!')
         return redirect('student_registration')
+    
 def remove_student(request, id):
     student = Student.objects.get(pk=id)
     student.delete()
     return redirect('home')
+
+def view_student(request, id):
+    student = Student.objects.get(pk=id)
+    return HttpResponseRedirect(reverse('home'))
     
    
     # return redirect('home')

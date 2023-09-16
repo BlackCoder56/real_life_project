@@ -11,4 +11,5 @@ urlpatterns = [
     path('student_registration', views.student_registration_form, name='student_registration'),
     path('<int:id>', views.student_registration_form, name='update'),
     path('delete<int:id>', views.remove_student, name='delete'),
+    path('view<int:id>', views.view_student, name='view_student'),
 ]
