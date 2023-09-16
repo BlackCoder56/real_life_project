@@ -14,20 +14,17 @@
     <!---------------------- NAVBAR ------------------>
     {% include 'wisdom_academy/navbar.html' %}   
     <!---------------------- ENDNAVBAR---------------->
-    <div class="container-fluid">
+    <div class="container-fluid">              
         
-        {% if user.is_authenticated %}
-
-        {% else %}
-        {% if messages %}
+        <!-- {% if messages %}
         {% for message in messages %}
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <div class="alert alert-warning alert-dismissible fade show mt-5 mb-5" role="alert">
            {{ message }}
            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         {% endfor %}
-        {% endif %} 
-        {% endif %}
+        {% endif %}  -->
+        
        
         {% block content %}  
         {% endblock content %}
