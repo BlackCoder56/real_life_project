@@ -15,7 +15,7 @@ table-bordered border-primary
                 <th scope="col">Phone</th>
                 <th scope="col">Address</th>
                 <th scope="col">Course</th>
-                <th scope="col">Actions</th>
+                <th scope="col"  class="text-center">Actions</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -23,7 +23,9 @@ table-bordered border-primary
                 {% for student in students %}
                 <tr>
                     <td class="text-center">
-                        <a href="{% url 'update' student.id %}">{{ student.student_code }}</a>
+                        <a href="{% url 'view_student' student.id %}" 
+                        data-bs-toggle="modal" data-bs-target="#myModal{{ student.id }}"
+                        >{{ student.student_code }}</a>
                     </td>
                     <td class="w-25 ">
                         <strong>
@@ -62,11 +64,14 @@ table-bordered border-primary
                     </div>
                     <div class="modal-body">
                     
-                        <table class="table table-bordered border-primary table-hover">
+                        <table class="table table-primary table-bordered border 
+                        border-primary border-2 table-hover my-2">
 
                             <tbody>
                               <tr>
-                                <td  class="text-sm-start">Student Code:</td>
+                                <td  class="text-sm-start">
+                                    Student Code
+                                </td>
                                 <td  class="text-sm-start">
                                     <strong>
                                         {{ student.student_code }}
@@ -74,7 +79,9 @@ table-bordered border-primary
                                 </td>
                               </tr>
                             <tr>
-                                <td class="text-sm-start">Student Name:</td>
+                                <td class="text-sm-start">
+                                    Student Name
+                                </td>
                                 <td class="text-sm-start">
                                     <strong>
                                         {{ student.student_name }}
@@ -82,7 +89,9 @@ table-bordered border-primary
                                 </td>
                               </tr>
                             <tr>
-                                <td class="text-sm-start">Email:</td>
+                                <td class="text-sm-start">
+                                    Email
+                                </td>
                                 <td class="text-sm-start">
                                     <strong>
                                         {{ student.email }}
@@ -90,7 +99,9 @@ table-bordered border-primary
                                 </td>
                               </tr>
                             <tr>
-                                <td class="text-sm-start">Phone:</td>
+                                <td class="text-sm-start">
+                                    Phone
+                                </td>
                                 <td class="text-sm-start">
                                     <strong>
                                         +256 {{ student.phone}}
@@ -98,7 +109,9 @@ table-bordered border-primary
                                 </td>
                               </tr>
                             <tr>
-                                <td class="text-sm-start">Address</td>
+                                <td class="text-sm-start">
+                                    Address
+                                </td>
                                 <td class="text-sm-start">
                                     <strong>
                                         {{ student.address }}
@@ -106,7 +119,9 @@ table-bordered border-primary
                                 </td>
                               </tr>
                             <tr>
-                                <td class="text-sm-start">Course</td>
+                                <td class="text-sm-start">
+                                    Course
+                                </td>
                                 <td class="text-sm-start text-primary">
                                     <strong>
                                         {{ student.course }}

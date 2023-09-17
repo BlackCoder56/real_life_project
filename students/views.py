@@ -87,6 +87,43 @@ def view_student(request, id):
 #         messages.success(request, 'You have to be logged to view students!')
 #         return redirect('home', {'students': students})
 
+
+def result_home(request):
+    return render(request, 'Student_results/results.html')
+
+def add_result(request):
+    # result_form = ResultForm(request.POST)
+    # if result_form.is_valid():
+    #     # result_form.save()
+        
+    #     new_student_code = result_form.cleaned_data('student_code')
+    #     new_course = result_form.cleaned_data('course')
+    #     new_module_one = result_form.cleaned_data('module_one')
+    #     new_module_two = result_form.cleaned_data('module_two')
+    #     new_module_three = result_form.cleaned_data('module_three')
+    #     new_module_four = result_form.cleaned_data('module_four')
+    #     new_gpa = result_form.cleaned_data('gpa')
+        
+    #     new_results = Results(
+    #         student_code = new_student_code,
+    #         course = new_course,
+    #         module_one = new_module_one,
+    #         module_two = new_module_two,
+    #         module_three = new_module_three,
+    #         module_four = new_module_four,
+    #         gpa = new_gpa          
+    #     )
+        
+    #     new_results.save()
+    #     return render(request, 'Student_results/add_result.html', {
+    #             'result_form': ResultForm()              
+    #         })        
+    #     return HttpResponseRedirect(reverse('Student_results'))   
+    # else:
+    return render(request, 'Student_results/add_result.html')           
+     
+     
+
 def about_view(request):
     return render(request, 'about_us.html')
 
