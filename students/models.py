@@ -22,5 +22,18 @@ class Student(models.Model):
     def __str__(self):
         return f"{self.student_name}  {self.course}"
     
+class Result(models.Model):
+    student_code = models.PositiveIntegerField()
+    student_name = models.CharField(max_length=30)
+    m_one = models.IntegerField()
+    m_two = models.IntegerField()
+    m_three = models.IntegerField()
+    m_four = models.IntegerField()   
+    gpa = models.FloatField()
+
+    def __str__(self):
+        return f'Student: {self.student_code} {self.student_name}'
+
+    
 
     

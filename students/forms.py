@@ -1,5 +1,5 @@
 from django import forms
-from . models import Student
+from . models import Student, Result
 
 # Student registration
 class StudentForm(forms.ModelForm):
@@ -29,7 +29,33 @@ class StudentForm(forms.ModelForm):
         super(StudentForm, self).__init__(*args, **kwargs)
         self.fields['course'].empty_label = 'Select Course'
         
+
+class ResultForm(forms.ModelForm): 
+   
+    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "Student Code", "class": "form-control rounded"}),
+                                 label="")
+    student_name = forms.CharField(required=True, widget=forms.widgets.TextInput(
+        attrs={"placeholder": "Student Name", "class": "form-control rounded"}), label="")
+    m_one = forms.IntegerField(required=True,
+                              widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module one"}),
+                              label="")
+    m_two = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module two"}),
+                              label="")
+    m_three = forms.IntegerField(required=True,widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}),
+                              label="")
+    m_four = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}),
+                           label="")
+    gpa = forms.FloatField(required=True, widget=forms.widgets.TextInput(attrs={ "class": "form-control rounded"}),     label="")
+    
+    
+    class Meta:
+        model = Result
+        fields = ('student_code', 'student_name', 'm_one', 'm_two', 'm_three', 'm_four', 'gpa')
         
+    def __init__(self, *args, **kwargs):
+        super(ResultForm, self).__init__(*args, **kwargs)
+        
+
 
 
         
