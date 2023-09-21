@@ -23,7 +23,7 @@ class Student(models.Model):
         return f"{self.student_name}  {self.course}"
     
 class Result(models.Model):
-    student_code = models.PositiveIntegerField()
+    student_code = models.CharField(max_length=50, unique=True)
     student_name = models.CharField(max_length=30)
     m_one = models.IntegerField()
     m_two = models.IntegerField()
