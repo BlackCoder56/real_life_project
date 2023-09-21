@@ -70,7 +70,7 @@
         <!---------------------  END of Message notification  --------------->
         <!------------------  Body --------------->
         <div class="col-md-4 offset-md-4 mt-5">
-            <form method="post" action="">
+            <form action="{% url 'add_results' %}" method="post">
                 {% csrf_token %}
                 <fieldset class="my-4">
                     <legend >
@@ -103,17 +103,24 @@
                     </div>
                     <div class="row ">
                         <div class="col-md-6 mt-2">
-                            {{ form.m_one | as_crispy_field }}  
+                            {{ form.m_three | as_crispy_field }}  
                         </div>
                         <div class="col-md-6 mt-2">
-                            {{ form.m_two | as_crispy_field }}  
+                            {{ form.m_four | as_crispy_field }}  
                         </div>
                     </div>
+                    <div class="row ">
+                        <div class="col-md-6 mt-2">
+                            {{ form.gpa | as_crispy_field }}  
+                        </div>                      
+                    </div>
+                    
                 </fieldset>
                 </fieldset>
                
                 <button type="submit" class="btn btn-primary rounded btn-bordered btn-lg mx-5">
-                    Submit Result</button>
+                    Submit Result
+                </button>
   
              </form>
            

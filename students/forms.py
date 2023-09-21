@@ -32,7 +32,7 @@ class StudentForm(forms.ModelForm):
 
 class ResultForm(forms.ModelForm): 
    
-    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "Student Code", "class": "form-control rounded"}),
+    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "Student Code", "class": "form-control rounded", "maxlength":"5","pattern":"ST[4-5][0-9][0-9]"}),
                                  label="")
     student_name = forms.CharField(required=True, widget=forms.widgets.TextInput(
         attrs={"placeholder": "Student Name", "class": "form-control rounded"}), label="")
