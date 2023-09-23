@@ -89,34 +89,44 @@ def view_student(request, id):
 
 
 def result_home(request):
-    return render(request, 'Student_results/results.html')
+    results = Result.objects.all()
+    if request.user.is_authenticated:
+        return render(request, 'Student_results/results.html', {'results':results})
+    else:
+        return redirect('home')        
 
 def add_result(request, id=0):
     if request.user.is_authenticated:        
         if request.method == "GET":
-                if id == 0:
-                    form = ResultForm()
-                else:
-                    student = Result.objects.get(pk=id)
-                    form = ResultForm(instance=student)
-                return render(request, 'Student_results/add_result.html',{'form':form})
+            if id == 0:
+                form = ResultForm()
+            else:
+                result = Result.objects.get(pk=id)
+                form = ResultForm(instance=result)
+            return render(request, 'Student_results/add_result.html',{'form':form})
         else:                
         
             if id == 0:
                 form = ResultForm(request.POST)
             else:
-                student = Result.objects.get(pk=id)
-                form = ResultForm(request.POST, instance=student)
-            
+                result = Result.objects.get(pk=id)
+                form = ResultForm(request.POST, instance=result)            
             if form.is_valid():
                 form.save()           
-                return redirect('Student_result')
+                return redirect('Student_results')
             return render(request, 'Student_results/add_result.html', {'form':form})
     else:
         messages.success(request, 'An error occurred. Please try again!')
         return redirect('add_results')
 
-     
+def remove_result(request, id):
+    results = Result.objects.get(pk=id)
+    results.delete()
+    return redirect('Student_results')
+
+def view_result(request, id):
+    results = Result.objects.get(pk=id)
+    return HttpResponseRedirect(reverse('Student_results'))
 
 def about_view(request):
     return render(request, 'about_us.html')
