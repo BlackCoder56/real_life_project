@@ -12,11 +12,8 @@ class StudentForm(forms.ModelForm):
     
     address = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}))
     
-    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={ "placeholder": "eg. 'ST412'","class": "form-control rounded", "name":"student_code", "maxlength":"5","pattern":"ST[4-5][0-9][0-9]","title":"Enter correct format(Between ST400-ST600)"}))
-    
+    student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={ "placeholder": "eg. 'ST412'","class": "form-control rounded", "name":"student_code", "maxlength":"5","pattern":"ST[4-5][0-9][0-9]","title":"Enter correct format(Between ST400-ST600)"}))   
    
-    
-    
     class Meta:
         model = Student
         fields = ('student_name', 'email','phone','address','student_code','course',)
@@ -37,15 +34,15 @@ class ResultForm(forms.ModelForm):
     student_name = forms.CharField(required=True, widget=forms.widgets.TextInput(
         attrs={"placeholder": "Student Name", "class": "form-control rounded"}), label="")
     m_one = forms.IntegerField(required=True,
-                              widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module one"}),
+                              widget=forms.widgets.TextInput(attrs={"class": "form-control rounded","maxlength":"2", "placeholder":"Module one"}),
                               label="")
-    m_two = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module two"}),
+    m_two = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module two", "maxlength":"2",}),
                               label="")
-    m_three = forms.IntegerField(required=True,widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}),
+    m_three = forms.IntegerField(required=True,widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module three", "maxlength":"2",}),
                               label="")
-    m_four = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}),
+    m_four = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Module four", "maxlength":"2",}),
                            label="")
-    gpa = forms.FloatField(required=True, widget=forms.widgets.TextInput(attrs={ "class": "form-control rounded"}),     label="")
+    gpa = forms.FloatField(required=True, widget=forms.widgets.TextInput(attrs={ "class": "form-control rounded", "placeholder":"Student GPA", "maxlength":"4",}),     label="")
     
     
     class Meta:
