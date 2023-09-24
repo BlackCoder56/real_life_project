@@ -123,10 +123,29 @@ def tuition_view(request):
     if request.user.is_authenticated:
         courses = Course.objects.all()
         
+        
         return render(request, 'Student_tuition/tuition.html', {'courses':courses})
         
     else:
         return redirect('home')    
+    
+def add_fees(request):
+    # st_code = form.cleaned_data['code']
+    # st_fee = form.cleaned_data['st_fees']
+    
+    # # form = Student_fees(request, student_code=st_code, paid=st_fee)   
+    if request.method == 'POST':         
+        student_code = request.POST['code']
+        paid = request.POST['st_fees']
+        # if form.is_valid:        
+            # form.save()
+        fees = Student_fees.objects.create(student_code=student_code, paid=paid)
+        return HttpResponseRedirect(reverse('view_tuition'))
+       
+    else:
+       return render(request, 'Student_tuition/tuition.html')
+    
+        
 
 def remove_result(request, id):
     results = Result.objects.get(pk=id)

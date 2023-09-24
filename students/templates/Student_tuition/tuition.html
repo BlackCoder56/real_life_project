@@ -1,5 +1,6 @@
 {% extends 'Student_tuition/base.html' %}
 {% block content %}
+{% load crispy_forms_tags %}
 <!-- offset-md-4 
 table-bordered border-primary
 -->
@@ -9,7 +10,7 @@ table-bordered border-primary
     <div class="col-md-4">
         <h5 class="text-dark">Tuition</h5>
         
-        <table class="table table-success table-bordered border-primary table-hover table-striped">
+        <table class="table  table-bordered border-dark table-hover table-striped">
             <thead class="table-primary border-primary">
                 <tr class="bg-primary">
                     <th scope="col" class="text-center">Course</th>
@@ -37,6 +38,40 @@ table-bordered border-primary
                 
         </table>        
     </div>
+
+     <!-- Popup modal -->
+     
+     <div class="modal modal-rounded  " id="myModal1" tabindex="-1">
+        
+        <div class="modal-dialog my-5 w-25">
+          <div class="modal-content">
+            <div class="modal-header bg-primary text-light ">
+              <h5 class="modal-title">
+                Enter data
+              </h5>
+              <button type="button" class="btn-close btn-secondary" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body bg-secondary">
+              <form action="{% url 'add_fees' %}" method="post">
+                {% csrf_token %}            
+
+                <input type="text" name="code" id=""  class="form-control rounded my-2" pattern = ST[4-5][0-9][0-9] placeholder="Enter correct Student Code">
+                <input type="number" name="st_fees" id=""  class="form-control rounded my-4" pattern = ST[4-5][0-9][0-9] placeholder="Enter received cash (UGX)">
+              
+            </div>
+            <div class="modal-footer my-0 bg-secondary">
+                <button type="submit" class="btn btn-primary   block rounded ">
+                    <i class="fa-solid fa-database  "></i>
+                    Submit
+                </button>
+              <button type="button" class="btn btn-secondary rounded" data-bs-dismiss="modal">
+                Close
+              </button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
     
     <div class="col-md-8">  
     <h5 class="text-dark"><u>Student Tuition Info</u></h5>
@@ -46,7 +81,7 @@ table-bordered border-primary
                 <th scope="col" class="text-center">Student Code</th>
                 <th scope="col">Full Name</th>
                 <th scope="col">Course</th>
-                <th scope="col">Paid</th>
+                <th scope="col ">Paid</th>
                 <th scope="col">Outstanding</th>
                 <th scope="col">Total</th>              
                 <th scope="col"  class="text-center">Actions</th>

@@ -19,5 +19,6 @@ urlpatterns = [
     path('delete_result/<int:id>', views.remove_result, name='delete_result'),    
     path('view_result/<int:id>', views.view_result, name='view_result'),
 #   Tuition
-    path('view_tuition', views.tuition_view, name='view_tuition')
+    path('view_tuition', views.tuition_view, name='view_tuition'),
+    path('add_fees', views.add_fees, name='add_fees'),
 ]
