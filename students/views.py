@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from . models import Student, Result
+from . models import Student, Result, Course, Student_fees
 from . forms import StudentForm, ResultForm
 
 # Create your views here.
@@ -120,7 +120,13 @@ def add_result(request, id=0):
         return redirect('add_results')
     
 def tuition_view(request):
-    return render(request, 'Student_tuition/tuition.html')
+    if request.user.is_authenticated:
+        courses = Course.objects.all()
+        
+        return render(request, 'Student_tuition/tuition.html', {'courses':courses})
+        
+    else:
+        return redirect('home')    
 
 def remove_result(request, id):
     results = Result.objects.get(pk=id)
