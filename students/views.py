@@ -118,6 +118,9 @@ def add_result(request, id=0):
     else:
         messages.success(request, 'An error occurred. Please try again!')
         return redirect('add_results')
+    
+def tuition_view(request):
+    return render(request, 'Student_tuition/tuition.html')
 
 def remove_result(request, id):
     results = Result.objects.get(pk=id)
