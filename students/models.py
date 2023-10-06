@@ -23,7 +23,7 @@ class Student(models.Model):
         return f"{self.student_name}"
     
 class Student_fees(models.Model):      
-    student_code = models.ForeignKey(Student, db_column='student_code', on_delete=models.CASCADE)   
+    student_code = models.ForeignKey(Student, on_delete=models.CASCADE)   
     paid = models.FloatField()
    
     

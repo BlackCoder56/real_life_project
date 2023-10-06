@@ -122,24 +122,38 @@ def add_result(request, id=0):
 def tuition_view(request):
     if request.user.is_authenticated:
         courses = Course.objects.all()
+        s_tuition = Student_fees.objects.all()
+        studentt = Student.objects.all()
         
-        
-        return render(request, 'Student_tuition/tuition.html', {'courses':courses})
+        return render(request, 'Student_tuition/tuition.html',{'s_tuition':s_tuition, 'courses':courses, 'studentt': studentt})
         
     else:
         return redirect('home')    
     
 def add_fees(request):
     # st_code = form.cleaned_data['code']
-    # st_fee = form.cleaned_data['st_fees']
+    # st_fee = form.cleaned_data['st_fees']    
     
-    # # form = Student_fees(request, student_code=st_code, paid=st_fee)   
-    if request.method == 'POST':         
-        student_code = request.POST['code']
-        paid = request.POST['st_fees']
-        # if form.is_valid:        
-            # form.save()
-        fees = Student_fees.objects.create(student_code=student_code, paid=paid)
+    get_code = request.POST.get('code')
+    get_paid = request.POST.get('st_fees')
+    # student_data = Student.objects.filter(student_code = student_code).all()
+    # student_data = Student.objects.filter(student_code = get_code).values()
+    student_data =  Student.objects.values_list('student_name', flat=True).filter(student_code = get_code)
+    # context = {
+    #     'student_data': student_data,
+    # }
+    
+    # for st_name in student_data:
+    #     std_name = st_name.student_name
+    # my_models = Student_fees.objects.filter(pk__in=set(student_data))
+    
+    string_name = str(student_data)
+    
+    form = Student_fees(request, student_code=string_name, paid=get_paid)   
+    if request.method == 'POST':      
+        if form.is_valid:        
+            form.save()
+        # fees = Student_fees.objects.create(student_code=student_code, paid=paid)
         return HttpResponseRedirect(reverse('view_tuition'))
        
     else:

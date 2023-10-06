@@ -73,7 +73,7 @@ table-bordered border-primary
         </div>
       </div>
     
-    <div class="col-md-8">  
+    <div class="col-md-7">  
     <h5 class="text-dark"><u>Student Tuition Info</u></h5>
     <table class="table table-primary table-bordered border-primary table-hover table-striped">
         <thead class="table-success border-primary">
@@ -87,9 +87,33 @@ table-bordered border-primary
                 <th scope="col"  class="text-center">Actions</th>
             </tr>
         </thead>
-        <tbody class="table-group-divider">
-           
-                 
+        <tbody class="table-group-divider"> 
+            {% if s_tuition %}
+            {% for tuition in s_tuition %}
+                <tr>
+                    <td>
+                        {{ tuition.student_code.student_code }}
+                    </td>
+                    <td>
+                        {{ tuition.student_code.student_name }}
+                    </td>
+                    <td>
+                        {{ tuition.student_code.course }}
+                    </td>
+                    <td>
+                        {{ tuition.paid }}
+                    </td>
+                    <td>
+                      
+                    </td>
+                    
+                    <td>                       
+                        
+                    </td>
+                   
+                </tr>
+            {% endfor %}
+            {% endif %}
         </tbody>
             
     </table>
