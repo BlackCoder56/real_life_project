@@ -17,25 +17,19 @@
               <span class="visually-hidden">(current)</span>
             </a>
           </li>
+
+         
+          
           <li class="nav-item">
-            <a class="nav-link mx-2" href="{% url 'student_registration' %}">
-                <!-- <i class="fa-solid fa-plus"></i> -->
-                <i class="fa-solid fa-users"></i>
-                Register Student
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2" href="{% url 'Student_results' %}">
-                <i class="fa-solid fa-book-open"></i>
-                Studet Results
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2" href="{% url 'view_tuition' %}">
-                <i class="fa-solid fa-cash-register"></i>
+            <a class="nav-link mx-2" href="" data-bs-toggle="modal" data-bs-target="#myModal1">                
+                <i class="fa-solid fa-plus"></i>
                 Tuition
             </a>
-          </li>              
+
+            
+
+          </li>
+       
         </ul>      
        
         <ul class="nav navbar-nav navbar-right">            
@@ -44,9 +38,13 @@
                     <strong>
                         Logout
                     </strong>
+                    
                 </a>                    
             </li>
         </ul>
+
+        
+
         {% else %}      
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'index' %}">

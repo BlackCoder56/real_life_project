@@ -1,5 +1,5 @@
 from django import forms
-from . models import Student, Result
+from . models import Student, Result, Student_fees
 
 # Student registration
 class StudentForm(forms.ModelForm):
@@ -26,6 +26,32 @@ class StudentForm(forms.ModelForm):
         super(StudentForm, self).__init__(*args, **kwargs)
         self.fields['course'].empty_label = 'Select Course'
         
+        
+class StudentTuitionForm(forms.ModelForm):
+    
+    paid = forms.IntegerField(required=True, widget=forms.widgets.TextInput(attrs={"class": "form-control rounded"}) )
+  
+    class Meta:
+        model = Student_fees
+        fields = ('student_code','paid',)
+        labels = {
+              
+        }
+        
+    def __init__(self, *args, **kwargs):
+        super(StudentForm, self).__init__(*args, **kwargs)
+        self.fields['student_code'].empty_label = 'Select Student'
+        
+# class TuitionForm(forms.ModelForm):
+#     # student_code = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder": "Student Code", "class": "form-control rounded", "maxlength":"5","pattern":"ST[4-5][0-9][0-9]"}),
+#     #                              label="")
+#     # paid = forms.FloatField(required=True,widget=forms.widgets.TextInput(attrs={"class": "form-control rounded", "placeholder":"Enter received cash (UGX)"}))
+    
+#     class meta:        
+#         model = Student_fees
+#         fields = ['student_code', 'paid']
+        
+  
 
 class ResultForm(forms.ModelForm): 
    

@@ -20,7 +20,15 @@ class Student(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.student_name}  {self.course}"
+        return f"{self.student_name}"
+    
+class Student_fees(models.Model):      
+    student_code = models.ForeignKey(Student, on_delete=models.CASCADE)   
+    paid = models.FloatField()
+   
+    
+    def __str__(self):
+        return f"{self.student_code}"
     
 class Result(models.Model):
     student_code = models.CharField(max_length=50, unique=True)
