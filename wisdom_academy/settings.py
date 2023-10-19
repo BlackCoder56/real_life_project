@@ -78,14 +78,25 @@ WSGI_APPLICATION = 'wisdom_academy.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'wisdom',
+#         'USER': 'root',
+#         'PASSWORD': 'swap2',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wisdom',
-        'USER': 'root',
-        'PASSWORD': 'swap2',
+        'USER': 'postgres',
+        'PASSWORD': 'swap1',
         'HOST': 'localhost',
-        'PORT': '3306',
+        'PORT': '5432',
     }
 }
 
