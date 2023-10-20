@@ -42,6 +42,5 @@ class Result(models.Model):
     def __str__(self):
         return f'Student: {self.student_code} {self.student_name}'
 
-    
 
     
